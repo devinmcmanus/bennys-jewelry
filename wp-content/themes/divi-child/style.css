@@ -19,3 +19,13 @@
     position: relative;
     top: 4px;
 }
+
+
+/* #c4beb9 */
+.gform_button.button {
+    background-color: #c4beb9 !important;
+}
+
+.gform_button.button:hover {
+    background-color: #ACA6A1 !important;
+}
