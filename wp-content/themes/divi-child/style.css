@@ -8,6 +8,10 @@
  Version: 1.0.0
 */
 
+:root {
+    --eon-secondary: #ACA6A1;
+}
+
 /* =Theme customization starts here
 ------------------------------------------------------- */
 .logo-fancy-text {
@@ -27,9 +31,13 @@
 }
 
 .gform_button.button:hover {
-    background-color: #ACA6A1 !important;
+    background-color: var(--eon-secondary) !important;
 }
 
 .et-cart-info {
     display: none;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a {
+    color: var(--eon-secondary);
 }
