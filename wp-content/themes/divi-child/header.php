@@ -269,7 +269,7 @@
 						<?php
 							} else {
 						?>
-								<span style="font-family: 'Open Sans', Arial, sans-serif !important; color: #505050; font-size: 20px; font-weight: bold;"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+								<span class="logo-fancy-text"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 						<?php } ?>
 					</a>
 				</div>
