@@ -12,3 +12,14 @@ function dt_enqueue_styles() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'dt_enqueue_styles' );
+
+function childtheme_enqueue_great_vibes() {
+    // Load Great Vibes from Google Fonts
+    wp_enqueue_style(
+        'great-vibes-googlefont',
+        'https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap',
+        array(),
+        null
+    );
+}
+add_action('wp_enqueue_scripts', 'childtheme_enqueue_great_vibes');
