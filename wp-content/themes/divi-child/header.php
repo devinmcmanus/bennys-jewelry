@@ -239,25 +239,38 @@
 		<header id="main-header" data-height-onload="<?php echo esc_attr( et_get_option( 'menu_height', '66' ) ); ?>">
 			<div class="container clearfix et_menu_container">
 			<?php
-				$logo = ( $user_logo = et_get_option( 'divi_logo' ) ) && ! empty( $user_logo )
-					? $user_logo
-					: $template_directory_uri . '/images/logo.png';
+				$user_logo = et_get_option( 'divi_logo' );
+				$logo = "";
+				$logo_size = $logo_width = $logo_height = 0;
 
-				// Get logo image size based on attachment URL.
-				$logo_size   = et_get_attachment_size_by_url( $logo );
-				$logo_width  = ( ! empty( $logo_size ) && is_numeric( $logo_size[0] ) )
-						? $logo_size[0]
-						: '93'; // 93 is the width of the default logo.
-				$logo_height = ( ! empty( $logo_size ) && is_numeric( $logo_size[1] ) )
-						? $logo_size[1]
-						: '43'; // 43 is the height of the default logo.
+				if (!empty( $user_logo )) {
+					$logo = $user_logo;
+
+					// Get logo image size based on attachment URL.
+					$logo_size   = et_get_attachment_size_by_url( $logo );
+					$logo_width  = ( ! empty( $logo_size ) && is_numeric( $logo_size[0] ) )
+							? $logo_size[0]
+							: '93'; // 93 is the width of the default logo.
+					$logo_height = ( ! empty( $logo_size ) && is_numeric( $logo_size[1] ) )
+							? $logo_size[1]
+							: '43'; // 43 is the height of the default logo.
+				}
 
 				ob_start();
 			?>
 				<div class="logo_container">
 					<span class="logo_helper"></span>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo esc_attr( $logo ); ?>" width="<?php echo esc_attr( $logo_width ); ?>" height="<?php echo esc_attr( $logo_height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" data-height-percentage="<?php echo esc_attr( et_get_option( 'logo_height', '54' ) ); ?>" />
+						<?php 
+							// Display the logo if it's provided, otherwise just print the name of the site
+							if ($logo != "") {
+						?>
+								<img src="<?php echo esc_attr( $logo ); ?>" width="<?php echo esc_attr( $logo_width ); ?>" height="<?php echo esc_attr( $logo_height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" id="logo" data-height-percentage="<?php echo esc_attr( et_get_option( 'logo_height', '54' ) ); ?>" />
+						<?php
+							} else {
+						?>
+								<span style="font-family: 'Open Sans', Arial, sans-serif !important; color: #505050; font-size: 20px; font-weight: bold;"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+						<?php } ?>
 					</a>
 				</div>
 			<?php
