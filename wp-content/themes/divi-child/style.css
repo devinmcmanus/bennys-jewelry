@@ -29,3 +29,7 @@
 .gform_button.button:hover {
     background-color: #ACA6A1 !important;
 }
+
+.et-cart-info {
+    display: none;
+}
