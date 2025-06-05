@@ -9,7 +9,9 @@
 */
 
 :root {
+    --eon-primary: #c4beb9;
     --eon-secondary: #ACA6A1;
+    --eon-button-text: #fff;
 }
 
 /* =Theme customization starts here
@@ -24,10 +26,8 @@
     top: 4px;
 }
 
-
-/* #c4beb9 */
 .gform_button.button {
-    background-color: #c4beb9 !important;
+    background-color: var(--eon-primary)!important;
 }
 
 .gform_button.button:hover {
@@ -40,4 +40,24 @@
 
 .woocommerce nav.woocommerce-pagination ul li a {
     color: var(--eon-secondary);
+}
+
+.posted_in a {
+    color: var(--eon-secondary) !important;
+}
+
+.posted_in a:hover {
+    text-decoration: underline;
+}
+
+.woocommerce #respond #commentform input#submit, .woocommerce-page #respond #commentform input#submit {
+    border: none;
+    background-color: var(--eon-primary) !important;
+    color: var(--eon-button-text);
+}
+
+.woocommerce #respond #commentform input#submit:hover, .woocommerce-page #respond #commentform input#submit:hover {
+    border: none;
+    background-color: var(--eon-secondary) !important;
+    color: var(--eon-button-text);
 }
